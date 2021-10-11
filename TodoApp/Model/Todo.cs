@@ -26,7 +26,7 @@ namespace TodoApp.Model
         private bool done;
         public bool Done { get { return done; } }
 
-        private Person assignee = new Person("Tom", "Smith");
+        private Person assignee;
         public Person Assignee
         {
             get { return assignee; }
