@@ -58,6 +58,9 @@ namespace TodoApp.Model
                 $"lastname: {lastName}";
         }
 
-
+        public static implicit operator Person(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

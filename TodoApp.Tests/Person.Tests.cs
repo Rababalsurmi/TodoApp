@@ -6,7 +6,7 @@ namespace TodoApp.Tests
     public class PersonTests
     {
         [Fact]
-        public void Constructor()
+        public void PersonConstructor()
         {
             String firstName = "John";
             String lastName = "Andersson";
@@ -18,5 +18,7 @@ namespace TodoApp.Tests
             Assert.Equal(testPerson.FirstName, firstName);
             Assert.Equal(testPerson.LastName, lastName);
         }
+
     }
+    
 }
