@@ -5,32 +5,37 @@ namespace TodoApp.Data
     public class People
     {
         
-        private static Person [] array = new Person[] { };
+        private static Person [] personarray = new Person[] { };
 
         public int Size()
         {
-            return array.Length;
+            return personarray.Length;
         }
         public Person[] FindAll()
         {
-            return Console.WriteLine("[{0}]", string.Join(", ", array));  
+            foreach (var person in personarray)
+            {
+                Console.WriteLine(person);
+                
+            }
+            return personarray;
+
+
         }
         public Person FindById(int personId)
         {
             Console.WriteLine("Insert person Id: ");
 
-            int id;
-
-            while (!int.TryParse(Console.ReadLine(), out id))
+            while (!int.TryParse(Console.ReadLine(), out personId))
             {
                 Console.WriteLine("Please insert a number!");
             }
 
-            foreach (var i in array)
+            foreach (var person in personarray)
             {
-                if(Person.Id == id)
+                if(Person.Id == personId)
                 {
-                    return i;
+                    return person;
                 }
             }
             
@@ -38,7 +43,7 @@ namespace TodoApp.Data
         }
         public People()
         {
-            var personFound =FindById(2);
+            var personFound = FindById(2);
         }
     }
 }
