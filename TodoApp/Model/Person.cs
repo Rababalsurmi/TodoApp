@@ -39,8 +39,9 @@ namespace TodoApp.Model
         public Person()
         {
             personId = ++idCounter;
-            this.firstName = "John";
-            this.lastName = "Andersson";
+
+            this.firstName = "";
+            this.lastName = "";
         }
 
         public Person(String firstName, String lastName)

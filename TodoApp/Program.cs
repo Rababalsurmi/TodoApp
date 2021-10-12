@@ -1,5 +1,6 @@
 ﻿using System;
 using TodoApp.Model;
+using TodoApp.Data;
 
 namespace TodoApp
 {
@@ -10,20 +11,58 @@ namespace TodoApp
             Console.WriteLine("Hello World!");
             Console.WriteLine("------------");
 
-            Person person1 = new Person();
-            Person person2 = new Person("Celine", "Alaini");
-            
-            Console.WriteLine(person1.Information());
-            Console.WriteLine();
-            Console.WriteLine(person2.Information());
+            //Person person1 = new Person("John", "Andersson");
+            //Person person2 = new Person("Celine", "Alaini");
+            //Person person3 = new Person("Maria", "Anniston");
+            //Person person4 = new Person("Karl", "Karlsson");
+
+
+            //Console.WriteLine(person1.Information());
+            //Console.WriteLine();
+            //Console.WriteLine(person2.Information());
+            //Console.WriteLine();
+            //Console.WriteLine(person3.Information());
+            //Console.WriteLine();
+            //Console.WriteLine(person4.Information());
+            //Console.WriteLine();
+
+            Todo hangman = new Todo(1, "Create a hangman App");
+            hangman.Assignee = new Person("John", "Andersson");
+            hangman.Done = true;
+
+            Todo testhangman = new Todo(2, "Test the hangman App");
+            testhangman.Assignee = new Person("Celine", "Alaini");
+
+            Todo testCalculator = new Todo(3, "Test the calculator App using XUnit");
+            testCalculator.Assignee = new Person("Maria", "Anniston");
+            testCalculator.Done = true;
+
+            Todo kampanj = new Todo(4, "Kampanj");
+            kampanj.Assignee = new Person("Karl", "Karlsson");
+
+
+            Console.WriteLine(hangman.TodoInformation());
             Console.WriteLine();
 
-            Todo description1 = new Todo();
-            Todo description2 = new Todo(2, "Test the calculator App using XUnit");
-
-            Console.WriteLine(description1.Information());
+            Console.WriteLine(testhangman.TodoInformation());
             Console.WriteLine();
-            Console.WriteLine(description2.Information());
+
+            Console.WriteLine(testCalculator.TodoInformation());
+            Console.WriteLine();
+
+            Console.WriteLine(kampanj.TodoInformation());
+            Console.WriteLine();
+
+
+            PersonSequencer personId1 = new PersonSequencer();
+            PersonSequencer personId2 = new PersonSequencer();
+
+            //Console.WriteLine(personId1.PersonIdInformation());
+            //Console.WriteLine();
+            //Console.WriteLine(personId2.PersonIdInformation());
+            //Console.WriteLine();
+
+
 
             Console.ReadKey();
         }
