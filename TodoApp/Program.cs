@@ -53,7 +53,7 @@ namespace TodoApp
             Console.WriteLine(kampanj.TodoInformation());
             Console.WriteLine();
 
-
+            
             Console.ReadKey();
         }
     }

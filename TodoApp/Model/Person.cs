@@ -7,7 +7,7 @@ namespace TodoApp.Model
         public static int IdCounter { get { return idCounter; } }
 
         private readonly int personId;
-        public int Id { get { return personId; } }
+        public static int Id { get { return personId; } }
 
         private String firstName;
         public String FirstName
