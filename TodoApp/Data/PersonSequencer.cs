@@ -3,45 +3,41 @@ namespace TodoApp.Data
 {
     public class PersonSequencer
     {
-        private static int personId = 1;
-        public int Id { get { return personId; } }
-        public int id;
+        private static int personId = 0;
+        public int personID { get { return personId; } }
 
-        static int nextPersonId()
+        public static int nextPersonId()
         {
-            return personId++;
+            int personID = personId;
+            return ++personID;
         }
         //public int NextPersonId { get { return nextPersonId();} }
 
-        static int reset()
+        public static int reset()
         {
             int personId = 0;
-            int id = personId * 0;
-            return id;
+            int Id = personId;
+            return Id;
         }
         //public int Reset { get { return reset(); } }
-       
-        public PersonSequencer()
-        {
-           
-            nextPersonId();
-            Console.WriteLine("The next Person Id is : {0} ", personId);
 
-            reset();
-            Console.WriteLine("Person Id is reset to : {0} ", id);
 
-        }
-        //public PersonSequencer(int personId)
+        //public PersonSequencer()
+        //{
+
+        //    nextPersonId();
+        //    Console.WriteLine("The next Person Id is : {0} ", personID);
+
+        //    reset();
+        //    Console.WriteLine("Person Id is reset to : {0} ", Id);
+
+        //}
+        //public ResetPersonSequencer()
         //{
         //    reset();
         //    Console.WriteLine("Person Id is reset to : {0} ", id);
         //}
 
-        //public string PersonIdInformation()
-        //{
-        //    return $"PersonId Information\n" +
-        //        $"id: {personId}\n";
-        //}
 
 
     }
