@@ -11,7 +11,6 @@ namespace TodoApp.Data
             int personID = personId;
             return ++personID;
         }
-        //public int NextPersonId { get { return nextPersonId();} }
 
         public static int reset()
         {
@@ -19,26 +18,5 @@ namespace TodoApp.Data
             int Id = personId;
             return Id;
         }
-        //public int Reset { get { return reset(); } }
-
-
-        //public PersonSequencer()
-        //{
-
-        //    nextPersonId();
-        //    Console.WriteLine("The next Person Id is : {0} ", personID);
-
-        //    reset();
-        //    Console.WriteLine("Person Id is reset to : {0} ", Id);
-
-        //}
-        //public ResetPersonSequencer()
-        //{
-        //    reset();
-        //    Console.WriteLine("Person Id is reset to : {0} ", id);
-        //}
-
-
-
     }
 }

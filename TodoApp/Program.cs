@@ -54,16 +54,6 @@ namespace TodoApp
             Console.WriteLine();
 
 
-            PersonSequencer personId1 = new PersonSequencer();
-            PersonSequencer personId2 = new PersonSequencer();
-
-            //Console.WriteLine(personId1.PersonIdInformation());
-            //Console.WriteLine();
-            //Console.WriteLine(personId2.PersonIdInformation());
-            //Console.WriteLine();
-
-
-
             Console.ReadKey();
         }
     }

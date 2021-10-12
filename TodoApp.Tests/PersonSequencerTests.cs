@@ -9,14 +9,8 @@ namespace TodoApp.Tests
         [Fact]
         public void NextPersonIdTest()
         {
-            //int personId = 0;
-
-            //PersonSequencer testPersonId = null;
-            //testPersonId = new nextPersonId();
-
             var testPersonId = TodoApp.Data.PersonSequencer.nextPersonId();
 
-           
             Assert.Equal(1, testPersonId);
         }
 
