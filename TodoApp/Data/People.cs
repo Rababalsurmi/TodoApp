@@ -59,6 +59,16 @@ namespace TodoApp.Data
             return newPerson;
         }
 
+        public void Clear()
+        {
+            Array.Clear(personarray, 0, personarray.Length);
+            Console.WriteLine("Array (After using Clear):");
+            foreach (Person person in personarray)
+            {
+                Console.WriteLine(person);
+            }
+
+        }
 
         //public static Person[] NewPerson<Person>(this Person[] personarray, Person person)
         //{
