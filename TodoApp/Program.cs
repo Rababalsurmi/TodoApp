@@ -53,7 +53,7 @@ namespace TodoApp
             Console.WriteLine(kampanj.TodoInformation());
             Console.WriteLine();
 
-            People personFound = new People.FindById(2);
+           
             Console.ReadKey();
         }
     }

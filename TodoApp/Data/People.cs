@@ -1,5 +1,6 @@
 ﻿using System;
 using TodoApp.Model;
+
 namespace TodoApp.Data
 {
     public class People
@@ -11,17 +12,12 @@ namespace TodoApp.Data
         {
             return personarray.Length;
         }
+
         public Person[] FindAll()
         {
-            foreach (var person in personarray)
-            {
-                Console.WriteLine(person);
-                
-            }
             return personarray;
-
-
         }
+
         public Person FindById(int personId)
         {
             Console.WriteLine("Insert person Id: ");
@@ -33,7 +29,7 @@ namespace TodoApp.Data
 
             foreach (var person in personarray)
             {
-                if(Person.Id == personId)
+                if (Person.IdCounter == personId)
                 {
                     return person;
                 }
@@ -41,9 +37,24 @@ namespace TodoApp.Data
             
             return null;
         }
+        public static Person[] NewPerson<Person>(this Person[] personarray, Person person)
+        {
+            if (personarray == null)
+            {
+                return new Person[] { person };
+            }
+
+            Person[] result = new Person[personarray.Length + 1];
+            personarray.CopyTo(result, 0);
+            result[personarray.Length] = person;
+
+            return result;
+        }
+
         public People()
         {
-            var personFound = FindById(2);
         }
+
+
     }
 }
