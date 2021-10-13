@@ -32,7 +32,7 @@ namespace TodoApp.Data
 
             foreach (var person in personarray)
             {
-                if (Person.IdCounter == personId)
+                if (PersonSequencer.nextPersonId() == personId)
                 {
                     return person;
                 }
@@ -41,15 +41,6 @@ namespace TodoApp.Data
             return null;
         }
 
-        public static Person NewPerson()
-        {
-            String firstName = "";
-            String lastName = "";
-            Person newPerson = new Person(firstName, lastName);
-
-            return newPerson;
-
-        }
 
         public static Person NewPerson(String firstName, String lastName)
         {
@@ -61,6 +52,9 @@ namespace TodoApp.Data
                 personarray[i] = newPerson;
                 i++;
             }
+            Person[] result = new Person[personarray.Length + 1];
+            personarray.CopyTo(result, 0);
+            result[personarray.Length] = newPerson;
 
             return newPerson;
         }
