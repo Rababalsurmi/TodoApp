@@ -18,6 +18,14 @@ namespace TodoApp.Data
             return personarray;
         }
 
+        //public static NewPerson()
+        //{
+        //    PersonSequencer newPerson = new PersonSequencer();
+        //    newPerson.personID;
+        //    return ;
+        //}
+
+
         public Person FindById(int personId)
         {
             Console.WriteLine("Insert person Id: ");
@@ -37,19 +45,20 @@ namespace TodoApp.Data
             
             return null;
         }
-        public static Person[] NewPerson<Person>(this Person[] personarray, Person person)
-        {
-            if (personarray == null)
-            {
-                return new Person[] { person };
-            }
 
-            Person[] result = new Person[personarray.Length + 1];
-            personarray.CopyTo(result, 0);
-            result[personarray.Length] = person;
+        //public static Person[] NewPerson<Person>(this Person[] personarray, Person person)
+        //{
+        //    if (personarray == null)
+        //    {
+        //        return new Person[] { person };
+        //    }
 
-            return result;
-        }
+        //    Person[] result = new Person[personarray.Length + 1];
+        //    personarray.CopyTo(result, 0);
+        //    result[personarray.Length] = person;
+
+        //    return result;
+        //}
 
         public People()
         {
