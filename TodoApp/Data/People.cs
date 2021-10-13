@@ -8,6 +8,9 @@ namespace TodoApp.Data
         
         private static Person [] personarray = new Person[] { };
 
+        PersonSequencer newPerson = new PersonSequencer();
+        
+
         public int Size()
         {
             return personarray.Length;
@@ -17,14 +20,6 @@ namespace TodoApp.Data
         {
             return personarray;
         }
-
-        //public static NewPerson()
-        //{
-        //    PersonSequencer newPerson = new PersonSequencer();
-        //    newPerson.personID;
-        //    return ;
-        //}
-
 
         public Person FindById(int personId)
         {
@@ -45,6 +40,31 @@ namespace TodoApp.Data
             
             return null;
         }
+
+        public static Person NewPerson()
+        {
+            String firstName = "";
+            String lastName = "";
+            Person newPerson = new Person(firstName, lastName);
+
+            return newPerson;
+
+        }
+
+        public static Person NewPerson(String firstName, String lastName)
+        {
+            Person newPerson = new Person(firstName, lastName);
+
+            int i = 0;
+            foreach (Person person in personarray)
+            {
+                personarray[i] = newPerson;
+                i++;
+            }
+
+            return newPerson;
+        }
+
 
         //public static Person[] NewPerson<Person>(this Person[] personarray, Person person)
         //{
