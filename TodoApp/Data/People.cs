@@ -8,8 +8,9 @@ namespace TodoApp.Data
         
         private static Person [] personarray = new Person[] { };
 
+
         PersonSequencer newPerson = new PersonSequencer();
-        
+        Person Person = new Person();
 
 
         public int Size()
@@ -57,10 +58,10 @@ namespace TodoApp.Data
             //    i++;
             //}
 
-            for (int i = 0; i < personarray.Length; i++)
-            {
-                personarray[i] = newPerson;
-            }
+            //for (int i = personarray.Length; i <= personarray.Length; i++)
+            //{
+            //    personarray[i] = newPerson;
+            //}
 
             Array.Resize(ref personarray, personarray.Length + 1);
 

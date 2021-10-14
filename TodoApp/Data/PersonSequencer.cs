@@ -4,7 +4,7 @@ namespace TodoApp.Data
     public class PersonSequencer
     {
         private static int personId = 0;
-        public int personID
+        public int PersonId
         {
             get { return personId; }
             set { personId = value; }
@@ -12,20 +12,15 @@ namespace TodoApp.Data
 
         public static int nextPersonId()
         {
-            int personID = personId;
-            return ++personID;
+            return ++personId;
         }
 
         public static int reset()
         {
             int personId = 0;
-            int Id = personId;
-            return Id;
+            //int Id = personId;
+            return personId;
         }
 
-        //public PersonSequencer()
-        //{
-        //    nextPersonId();
-        //}
     }
 }
