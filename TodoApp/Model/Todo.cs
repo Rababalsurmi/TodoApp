@@ -1,11 +1,12 @@
 ﻿using System;
+using TodoApp.Data;
+
 namespace TodoApp.Model
 {
     public class Todo
     {
         //id
-        static int idCounter = 0;
-        public static int IdCounter { get { return idCounter; } }
+        
 
         private readonly int todoId;
         public int Id { get { return todoId; } }
@@ -44,19 +45,17 @@ namespace TodoApp.Model
         //constructor
         public Todo()
         {
-            todoId = ++idCounter;
-            this.description = "";
-            //assignee = new Person("Tom", "Smith");
-            //this.done = true;  
+            description = "";
+         
         }
 
         public Todo(int todoId, String description)
         {
-            this.todoId = todoId;
+            todoId = TodoSequencer.nextTodo();
             this.description = description;
-            //assignee = new Person("Maria", "Anniston");
-            //this.done = true;  
+             
         }
+      
 
         public string TodoInformation()
         {
