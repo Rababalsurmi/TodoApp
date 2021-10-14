@@ -10,17 +10,25 @@ namespace TodoApp.Tests
         [Fact]
         public void SizeTest()
         {
-             Person[] personarray = new Person[] { };
+            Person[] personarray = new Person[] { };
+            
+            People testSize = new People();
 
-            personarray = new People.Size();
+            var actual = testSize.Size(personarray);
 
-            Assert.Equal(1, personarray.Length);
-
+            Assert.Equal(0, actual);
         }
 
         [Fact]
         public void FindAllTest()
         {
+            Person[] personarray = new Person[] { };
+
+            People testFindAll = new People();
+
+            var actual = testFindAll.FindAll(personarray);
+
+            Assert.Equal(personarray, actual);
 
         }
 
@@ -28,17 +36,40 @@ namespace TodoApp.Tests
         public void FindByIdTest()
         {
 
+            Person Person = new Person();
+            int personId = 1;
+
+            People testFindById = new People();
+
+            Person actual = testFindById.FindById(personId);
+
+            Assert.Equal(Person, actual);
         }
 
         [Fact]
         public void NewPersonTest()
         {
+            String firstName = "Tom";
+            String lastName = "Andersson";
+            Person newperson = new Person();
 
+            
+            Person actual = People.NewPerson(firstName, lastName);
+
+
+            Assert.Equal(newperson, actual);
         }
 
         [Fact]
         public void ClearTest()
         {
+            Person[] personarray = new Person[] { };
+
+            People testClear = new People();
+
+            testClear.Clear();
+
+            Assert.Empty(personarray);
 
         }
 

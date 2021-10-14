@@ -8,8 +8,8 @@ namespace TodoApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("------------");
+            //Console.WriteLine("Hello World!");
+            //Console.WriteLine("------------");
 
             //Person person1 = new Person("John", "Andersson");
             //Person person2 = new Person("Celine", "Alaini");
@@ -26,35 +26,35 @@ namespace TodoApp
             //Console.WriteLine(person4.Information());
             //Console.WriteLine();
 
-            Todo hangman = new Todo(1, "Create a hangman App");
-            hangman.Assignee = new Person("John", "Andersson");
-            hangman.Done = true;
+            //Todo hangman = new Todo(1, "Create a hangman App");
+            //hangman.Assignee = new Person("John", "Andersson");
+            //hangman.Done = true;
 
-            Todo testhangman = new Todo(2, "Test the hangman App");
-            testhangman.Assignee = new Person("Celine", "Alaini");
+            //Todo testhangman = new Todo(2, "Test the hangman App");
+            //testhangman.Assignee = new Person("Celine", "Alaini");
 
-            Todo testCalculator = new Todo(3, "Test the calculator App using XUnit");
-            testCalculator.Assignee = new Person("Maria", "Anniston");
-            testCalculator.Done = true;
+            //Todo testCalculator = new Todo(3, "Test the calculator App using XUnit");
+            //testCalculator.Assignee = new Person("Maria", "Anniston");
+            //testCalculator.Done = true;
 
-            Todo kampanj = new Todo(4, "Kampanj");
-            kampanj.Assignee = new Person("Karl", "Karlsson");
+            //Todo kampanj = new Todo(4, "Kampanj");
+            //kampanj.Assignee = new Person("Karl", "Karlsson");
 
 
-            Console.WriteLine(hangman.TodoInformation());
-            Console.WriteLine();
+            //Console.WriteLine(hangman.TodoInformation());
+            //Console.WriteLine();
 
-            Console.WriteLine(testhangman.TodoInformation());
-            Console.WriteLine();
+            //Console.WriteLine(testhangman.TodoInformation());
+            //Console.WriteLine();
 
-            Console.WriteLine(testCalculator.TodoInformation());
-            Console.WriteLine();
+            //Console.WriteLine(testCalculator.TodoInformation());
+            //Console.WriteLine();
 
-            Console.WriteLine(kampanj.TodoInformation());
-            Console.WriteLine();
+            //Console.WriteLine(kampanj.TodoInformation());
+            //Console.WriteLine();
 
            
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }

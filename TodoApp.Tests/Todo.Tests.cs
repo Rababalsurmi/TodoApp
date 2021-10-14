@@ -20,7 +20,6 @@ namespace TodoApp.Tests
         }
 
         [Theory]
-        [InlineData(null)]
         [InlineData(-1)]
         public void TodoIdTest(int todoId)
         {

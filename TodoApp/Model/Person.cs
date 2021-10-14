@@ -4,11 +4,9 @@ namespace TodoApp.Model
 {
     public class Person
     {
-        //static int idCounter = 0;
-        //public static int IdCounter { get { return idCounter; } }
 
         private readonly int personId;
-        public int Id { get { return personId; } }
+        public int PersonId { get { return personId; } }
 
         private String firstName;
         public String FirstName
@@ -39,8 +37,6 @@ namespace TodoApp.Model
 
         public Person()
         {
-            //personId = ++idCounter;
-
             this.firstName = "";
             this.lastName = "";
         }
@@ -56,7 +52,6 @@ namespace TodoApp.Model
 
         public Person(String firstName, String lastName)
         {
-            //personId = ++idCounter;
             this.firstName = firstName;
             this.lastName = lastName;
         }
@@ -67,11 +62,6 @@ namespace TodoApp.Model
                 $"id: {personId}\n" +
                 $"firstname: {firstName}\n" +
                 $"lastname: {lastName}";
-        }
-
-        public static implicit operator Person(string v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

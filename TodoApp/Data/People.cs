@@ -13,34 +13,32 @@ namespace TodoApp.Data
         Person Person = new Person();
 
 
-        public int Size()
+        public int Size(Person[] personarray)
         {
             return personarray.Length;
         }
 
-        public Person[] FindAll()
+        public Person[] FindAll(Person[] personarray)
         {
             return personarray;
         }
 
         public Person FindById(int personId)
         {
-            Console.WriteLine("Insert person Id: ");
-
-            while (!int.TryParse(Console.ReadLine(), out personId))
-            {
-                Console.WriteLine("Please insert a number!");
-            }
-
             foreach (Person person in personarray)
             {
-                if (Person.PersonId == personId)
+                var check = Array.Exists(personarray, personId => personId == person);
+                if (check == true)
                 {
+                    Console.WriteLine("{0} found in the array");
                     return person;
-                }
+                }  
             }
-            
+
+            Console.WriteLine("Value not found");
+
             return null;
+          
         }
 
 
@@ -51,23 +49,23 @@ namespace TodoApp.Data
 
             Person newPerson = new Person(firstName, lastName, personId);
 
-            //int i = 0;
-            //foreach (Person person in personarray)
-            //{
-            //    personarray[i] = newPerson;
-            //    i++;
-            //}
-
-            //for (int i = personarray.Length; i <= personarray.Length; i++)
-            //{
-            //    personarray[i] = newPerson;
-            //}
 
             Array.Resize(ref personarray, personarray.Length + 1);
 
             Person[] result = new Person[personarray.Length + 1];
-            personarray.CopyTo(result, 0);
-            result[personarray.Length] = newPerson;
+
+            for (int i = 0; i < personarray.Length; i++)
+            {
+                int x = 5;
+                if (i < x - 1)
+                    result[i] = personarray[i];
+                else if (i == x - 1)
+                    result[i] = newPerson;
+                else
+                    result[i] = personarray[i - 1];
+            }
+            //personarray.CopyTo(result, 0);
+            //result[personarray.Length] = newPerson;
 
             return newPerson;
         }
@@ -75,32 +73,8 @@ namespace TodoApp.Data
         public void Clear()
         {
             Array.Clear(personarray, 0, personarray.Length);
-            Console.WriteLine("Array (After using Clear):");
-            foreach (Person person in personarray)
-            {
-                Console.WriteLine(person);
-            }
-
+            
+            //Person[] personarray = Array.Empty<Person>();
         }
-
-        //public static Person[] NewPerson<Person>(this Person[] personarray, Person person)
-        //{
-        //    if (personarray == null)
-        //    {
-        //        return new Person[] { person };
-        //    }
-
-        //    Person[] result = new Person[personarray.Length + 1];
-        //    personarray.CopyTo(result, 0);
-        //    result[personarray.Length] = person;
-
-        //    return result;
-        //}
-
-        public People()
-        {
-        }
-
-
     }
 }
