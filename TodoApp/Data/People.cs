@@ -11,6 +11,7 @@ namespace TodoApp.Data
         PersonSequencer newPerson = new PersonSequencer();
         
 
+
         public int Size()
         {
             return personarray.Length;
@@ -30,9 +31,9 @@ namespace TodoApp.Data
                 Console.WriteLine("Please insert a number!");
             }
 
-            foreach (var person in personarray)
+            foreach (Person person in personarray)
             {
-                if (PersonSequencer.nextPersonId() == personId)
+                if (Person.PersonId == personId)
                 {
                     return person;
                 }
@@ -44,14 +45,25 @@ namespace TodoApp.Data
 
         public static Person NewPerson(String firstName, String lastName)
         {
-            Person newPerson = new Person(firstName, lastName);
+            int personId = 0;
+            personId = PersonSequencer.nextPersonId();
 
-            int i = 0;
-            foreach (Person person in personarray)
+            Person newPerson = new Person(firstName, lastName, personId);
+
+            //int i = 0;
+            //foreach (Person person in personarray)
+            //{
+            //    personarray[i] = newPerson;
+            //    i++;
+            //}
+
+            for (int i = 0; i < personarray.Length; i++)
             {
                 personarray[i] = newPerson;
-                i++;
             }
+
+            Array.Resize(ref personarray, personarray.Length + 1);
+
             Person[] result = new Person[personarray.Length + 1];
             personarray.CopyTo(result, 0);
             result[personarray.Length] = newPerson;

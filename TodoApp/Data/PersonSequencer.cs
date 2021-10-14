@@ -22,5 +22,10 @@ namespace TodoApp.Data
             int Id = personId;
             return Id;
         }
+
+        //public PersonSequencer()
+        //{
+        //    nextPersonId();
+        //}
     }
 }

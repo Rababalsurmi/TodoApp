@@ -1,10 +1,11 @@
 ﻿using System;
+using TodoApp.Data;
 namespace TodoApp.Model
 {
     public class Person
     {
-        static int idCounter = 0;
-        public static int IdCounter { get { return idCounter; } }
+        //static int idCounter = 0;
+        //public static int IdCounter { get { return idCounter; } }
 
         private readonly int personId;
         public int Id { get { return personId; } }
@@ -38,15 +39,24 @@ namespace TodoApp.Model
 
         public Person()
         {
-            personId = ++idCounter;
+            //personId = ++idCounter;
 
             this.firstName = "";
             this.lastName = "";
         }
 
+        public Person(String firstName, String lastName, int personId)
+        {
+            personId = PersonSequencer.nextPersonId();
+
+            this.personId = personId;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
         public Person(String firstName, String lastName)
         {
-            personId = ++idCounter;
+            //personId = ++idCounter;
             this.firstName = firstName;
             this.lastName = lastName;
         }
