@@ -50,16 +50,19 @@ namespace TodoApp.Data
 
             Todo[] result = new Todo[TodoArray.Length + 1];
 
-            for (int i = 0; i < TodoArray.Length; i++)
-            {
-                int x = 5;
-                if (i < x - 1)
-                    result[i] = TodoArray[i];
-                else if (i == x - 1)
-                    result[i] = newItem;
-                else
-                    result[i] = TodoArray[i - 1];
-            }
+            //for (int i = 0; i < TodoArray.Length; i++)
+            //{
+            //    int x = 5;
+            //    if (i < x - 1)
+            //        result[i] = TodoArray[i];
+            //    else if (i == x - 1)
+            //        result[i] = newItem;
+            //    else
+            //        result[i] = TodoArray[i - 1];
+            //}
+            TodoArray.CopyTo(result, 0);
+            result[TodoArray.Length] = newItem;
+
             return newItem;
         }
 

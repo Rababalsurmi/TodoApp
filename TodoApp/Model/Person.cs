@@ -14,7 +14,7 @@ namespace TodoApp.Model
             get { return firstName; }
             set
             {
-                if(value.Equals(""))
+                if(string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("Invaild First Name! ");
                 }
@@ -43,8 +43,6 @@ namespace TodoApp.Model
 
         public Person(String firstName, String lastName, int personId)
         {
-            personId = PersonSequencer.nextPersonId();
-
             this.personId = personId;
             this.firstName = firstName;
             this.lastName = lastName;
@@ -52,6 +50,7 @@ namespace TodoApp.Model
 
         public Person(String firstName, String lastName)
         {
+            
             this.firstName = firstName;
             this.lastName = lastName;
         }

@@ -53,18 +53,18 @@ namespace TodoApp.Data
 
             Person[] result = new Person[personarray.Length + 1];
 
-            for (int i = 0; i < personarray.Length; i++)
-            {
-                int x = 5;
-                if (i < x - 1)
-                    result[i] = personarray[i];
-                else if (i == x - 1)
-                    result[i] = newPerson;
-                else
-                    result[i] = personarray[i - 1];
-            }
-            //personarray.CopyTo(result, 0);
-            //result[personarray.Length] = newPerson;
+            //for (int i = 0; i < personarray.Length; i++)
+            //{
+            //    int x = 5;
+            //    if (i < x - 1)
+            //        result[i] = personarray[i];
+            //    else if (i == x - 1)
+            //        result[i] = newPerson;
+            //    else
+            //        result[i] = personarray[i - 1];
+            //}
+            personarray.CopyTo(result, 0);
+            result[personarray.Length] = newPerson;
 
             return newPerson;
         }

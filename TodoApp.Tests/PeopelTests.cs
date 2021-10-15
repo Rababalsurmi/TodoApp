@@ -51,13 +51,17 @@ namespace TodoApp.Tests
         {
             String firstName = "Tom";
             String lastName = "Andersson";
-            Person newperson = new Person();
+            int personId = 1;
 
-            
+            Person newPerson = new Person(firstName, lastName, personId);
+
             Person actual = People.NewPerson(firstName, lastName);
 
-
-            Assert.Equal(newperson, actual);
+            //Assert.Equal(newperson, actual);
+            Assert.NotNull(newPerson);
+            Assert.Equal(newPerson.PersonId, personId);
+            Assert.Equal(newPerson.FirstName, firstName);
+            Assert.Equal(newPerson.LastName, lastName);
         }
 
         [Fact]

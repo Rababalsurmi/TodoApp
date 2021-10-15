@@ -18,7 +18,7 @@ namespace TodoApp.Model
             get { return description; }
             set
             {
-                if (value.Equals(""))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("Invaild Description! ");
                 }
@@ -51,7 +51,7 @@ namespace TodoApp.Model
 
         public Todo(int todoId, String description)
         {
-            todoId = TodoSequencer.nextTodo();
+            this.todoId = todoId;
             this.description = description;
              
         }

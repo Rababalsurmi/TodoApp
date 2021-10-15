@@ -50,16 +50,22 @@ namespace TodoApp.Tests
         public void NewItemTest()
         {
             String description = "Kampanj";
-            
-            Todo newItem = new Todo();
+            int todoId = 1;
+
+
+            Todo newItem = new Todo(todoId, description);
 
 
             Todo actual = TodoItems.NewItem(description);
 
 
-            Assert.Equal(newItem, actual);
+            //Assert.Equal(newItem, actual);
+            Assert.NotNull(newItem);
+            Assert.Equal(newItem.Id, todoId);
+            Assert.Equal(newItem.Description, description);
+           
         }
-
+      
         [Fact]
         public void ClearTest()
         {
