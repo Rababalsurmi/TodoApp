@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TodoApp.Model;
 
 namespace TodoApp.Data
@@ -158,6 +159,11 @@ namespace TodoApp.Data
             }
             Console.WriteLine("{0} found in the UnassignedArray");
             return UnassignedArray.ToArray();
+        }
+
+        public void Remove(int indexToRemove)
+        {
+            TodoArray = TodoArray.Where((source, index) => index != indexToRemove).ToArray();
         }
     }
 }
