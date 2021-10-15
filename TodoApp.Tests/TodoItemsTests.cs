@@ -136,5 +136,19 @@ namespace TodoApp.Tests
 
             Assert.Equal(UnassignedArray, actual);
         }
+
+        [Fact]
+        public void RemoveTest()
+        {
+            int indexToRemove = 0;
+            Todo[] TodoArray = new Todo[] { };
+
+            TodoItems testRemove = new TodoItems();
+
+            testRemove.Remove(indexToRemove);
+
+            Assert.NotNull(TodoArray);
+
+        }
     }
 }

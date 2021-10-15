@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using TodoApp.Model;
 
 namespace TodoApp.Data
@@ -74,6 +76,11 @@ namespace TodoApp.Data
             Array.Clear(personarray, 0, personarray.Length);
             
             //Person[] personarray = Array.Empty<Person>();
+        }
+
+        public void Remove(int indexToRemove)
+        {
+            personarray = personarray.Where((source, index) => index != indexToRemove).ToArray();
         }
     }
 }

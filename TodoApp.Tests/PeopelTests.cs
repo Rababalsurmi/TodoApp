@@ -77,12 +77,18 @@ namespace TodoApp.Tests
 
         }
 
-
-
-
-
-        public PeopelTests()
+        [Fact]
+        public void RemoveTest()
         {
+            int indexToRemove = 0;
+            Person[] personarray = new Person[] { };
+
+            People testRemove = new People();
+
+            testRemove.Remove(indexToRemove);
+
+            Assert.NotNull(personarray);
+
         }
     }
 }
