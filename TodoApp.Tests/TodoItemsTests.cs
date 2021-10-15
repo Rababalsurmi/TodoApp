@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 using TodoApp.Data;
 using TodoApp.Model;
@@ -37,13 +38,14 @@ namespace TodoApp.Tests
         {
 
             Todo Item = new Todo();
-            int todoId = 1;
+            int todoId = 0;
 
             TodoItems testFindById = new TodoItems();
 
             Todo actual = testFindById.FindById(todoId);
 
-            Assert.Equal(Item, actual);
+            //Assert.Equal(Item, actual);
+            Assert.Equal(Item.Id, todoId);
         }
 
         [Fact]
@@ -82,43 +84,57 @@ namespace TodoApp.Tests
         [Fact]
         public void FindByDoneStatusTest()
         {
-
+            Todo[] DoneStatus = new Todo[] { };
             Todo todo = new Todo();
             bool doneStatus = true;
 
             TodoItems testFindByDoneStatus = new TodoItems();
 
-            Todo actual = testFindByDoneStatus.FindByDoneStatus(doneStatus);
+            var actual = testFindByDoneStatus.FindByDoneStatus(doneStatus);
 
-            Assert.Equal(todo, actual);
+            Assert.Equal(DoneStatus, actual);
         }
 
         [Fact]
         public void FindByAssigneeTest()
         {
+            Todo[] AssigneeArray = new Todo[] { };
+            Todo todo = new Todo();
 
-            Todo Assignee = new Todo();
             int personId = 1;
 
             TodoItems testFindByAssignee = new TodoItems();
 
-            Todo actual = testFindByAssignee.FindByAssignee(personId);
+            var actual = testFindByAssignee.FindByAssignee(personId);
 
-            Assert.Equal(Assignee, actual);
+            Assert.Equal(AssigneeArray, actual);
         }
 
         [Fact]
         public void FindByPersonAssigneeTest()
         {
+            Todo[] PersonAssigneeArray = new Todo[] { };
+            Todo todo = new Todo();
 
-            Todo PersonAssignee = new Todo();
-            Person assignee;
+            Person assignee = new Person("Karl", "Karlsson");
 
             TodoItems testFindByAssignee = new TodoItems();
 
-            Todo actual = testFindByAssignee.FindByAssignee(assignee);
+            var actual = testFindByAssignee.FindByAssignee(assignee);
 
-            Assert.Equal(PersonAssignee, actual);
+            Assert.Equal(PersonAssigneeArray, actual);
+        }
+
+        [Fact]
+        public void FindUnassignedTodoItemsTest()
+        {
+            Todo[] UnassignedArray = new Todo[] { };
+
+            TodoItems testFindUnassignedTodoItems = new TodoItems();
+
+            var actual = testFindUnassignedTodoItems.FindUnassignedTodoItems();
+
+            Assert.Equal(UnassignedArray, actual);
         }
     }
 }
