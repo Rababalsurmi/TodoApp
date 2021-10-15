@@ -46,16 +46,21 @@ namespace TodoApp.Model
         public Todo()
         {
             description = "";
-         
         }
 
         public Todo(int todoId, String description)
         {
             this.todoId = todoId;
-            this.description = description;
-             
+            this.description = description;    
         }
-      
+
+        public Todo(int todoId, String description, bool done)
+        {
+            this.done = done;
+            this.todoId = todoId;
+            this.description = description;
+        }
+
 
         public string TodoInformation()
         {

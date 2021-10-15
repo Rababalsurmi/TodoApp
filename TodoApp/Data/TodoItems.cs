@@ -7,9 +7,15 @@ namespace TodoApp.Data
     {
 
         private static Todo[] TodoArray = new Todo[] { };
+        private static Todo[] DoneStatus = new Todo[] { };
+        private static Todo[] AssigneeArray = new Todo[] { };
+        private static Todo[] PersonAssigneeArray = new Todo[] { };
+        private static Person[] UnassignedArray = new Person[] { };
 
         TodoSequencer newItem = new TodoSequencer();
         Todo Item = new Todo();
+        
+
 
         public int Size(Todo[] TodoArray)
         {
@@ -50,16 +56,6 @@ namespace TodoApp.Data
 
             Todo[] result = new Todo[TodoArray.Length + 1];
 
-            //for (int i = 0; i < TodoArray.Length; i++)
-            //{
-            //    int x = 5;
-            //    if (i < x - 1)
-            //        result[i] = TodoArray[i];
-            //    else if (i == x - 1)
-            //        result[i] = newItem;
-            //    else
-            //        result[i] = TodoArray[i - 1];
-            //}
             TodoArray.CopyTo(result, 0);
             result[TodoArray.Length] = newItem;
 
@@ -68,9 +64,77 @@ namespace TodoApp.Data
 
         public void Clear()
         {
-            Array.Clear(TodoArray, 0, TodoArray.Length);
+            Array.Clear(TodoArray, 0, TodoArray.Length); 
+        }
 
-            //Todo[] TodoArray = Array.Empty<Todo>();
+        public Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            
+            foreach (Todo done in DoneStatus)
+            {
+                var check = Array.Exists(DoneStatus, doneStatus => doneStatus == done);
+                if (check == true)
+                {
+                    Console.WriteLine("{0} found in the DoneStatus");
+                    return done;
+                }
+            }
+            Console.WriteLine("Value not found");
+            return null;
+        }
+
+        public Todo[] FindByAssignee(int personId)
+        {
+            foreach (Todo assignee in AssigneeArray)
+            {
+                var check = Array.Exists(AssigneeArray, personId => personId == assignee);
+                if (check == true)
+                {
+                    Console.WriteLine("{0} found in the AssigneeArray");
+                    return assignee;
+                }
+            }
+
+            Console.WriteLine("Value not found");
+
+            return null;
+        }
+
+        public Todo[] FindByAssignee(Person assignee)
+        {
+            foreach (Todo personAssignee in PersonAssigneeArray)
+            {
+                var check = Array.Exists(PersonAssigneeArray, assignee => assignee == personAssignee);
+                if (check == true)
+                {
+                    Console.WriteLine("{0} found in the PersonAssigneeArray");
+                    return personAssignee;
+                }
+            }
+
+            Console.WriteLine("Value not found");
+
+            return null;
+        }
+
+        public Todo[] FindUnassignedTodoItems()
+        {
+            
+            Item.Assignee = new Person();
+
+            foreach (Person unassigned in UnassignedArray)
+            {
+                var check = Array.Exists(UnassignedArray, Item.Assignee => Item.Assignee != unassigned);
+                if (check == true)
+                {
+                    Console.WriteLine("{0} found in the UnassignedArray");
+                    return unassigned;
+                }
+            }
+
+            Console.WriteLine("Value not found");
+
+            return null;
         }
     }
 }
