@@ -46,11 +46,11 @@ namespace TodoApp.Tests
             Assert.Equal(Person, actual);
         }
 
-        [Fact]
-        public void NewPersonTest()
-        {
-            String firstName = "Tom";
-            String lastName = "Andersson";
+        [Theory]
+        [InlineData("Tom", "Andersson")]
+        [InlineData("Kim", "Andersson")]
+        public void NewPersonTest(String firstName, String lastName)
+        { 
             int personId = 1;
 
             Person newPerson = new Person(firstName, lastName, personId);
@@ -64,6 +64,18 @@ namespace TodoApp.Tests
             Assert.Equal(newPerson.LastName, lastName);
         }
 
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(null, null)]
+        public void NullNewPersonTest(String firstName, String lastName)
+        {
+            int personId = 1;
+
+            ArgumentException result = Assert.Throws<ArgumentException>(() => new Person(firstName, lastName, personId));
+
+            Assert.Equal("Invaild First Name! ", result.Message) ;
+
+        }
         [Fact]
         public void ClearTest()
         {

@@ -44,15 +44,15 @@ namespace TodoApp.Model
         public Person(String firstName, String lastName, int personId)
         {
             this.personId = personId;
-            this.firstName = firstName;
-            this.lastName = lastName;
+            FirstName = firstName;
+            LastName = lastName;
         }
 
         public Person(String firstName, String lastName)
         {
-            
-            this.firstName = firstName;
-            this.lastName = lastName;
+
+            FirstName = firstName;
+            LastName = lastName;
         }
 
         public string Information()
